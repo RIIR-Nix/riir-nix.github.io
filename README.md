@@ -2,6 +2,8 @@
 
 ## Motivation for this organisation
 
+[original issue](https://github.com/NixOS/nix/issues/5315)
+
 > As it appears that there are now at least 5 tries to reimplement parts of Nix in Rust,
 > it might be appropriate to isolate common functionality or patterns into crates that
 > can be shared between all of them (as it might be likely that we run into edge cases
