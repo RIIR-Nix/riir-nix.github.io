@@ -45,3 +45,27 @@
   but it might be possible to extract common abstractions out into some shared rust crates.
 - [Tvix: We are rewriting Nix](https://www.reddit.com/r/NixOS/comments/r6ykln/tvix_we_are_rewriting_nix/hmxk04p/)
   TVL / tvix tries to reimplement the Nix evaluator in Rust.
+
+## Related projects
+
+- [YZITE/nix2js](https://github.com/YZITE/nix2js), half-working Nix-to-Javascript transpiler.
+  Used as an experiment to find out which parts of the Nix language are difficult to implement.
+  Known findings:
+  - [mutual `with`-`import`s are difficult to implement](https://github.com/YZITE/nix2js/issues/2),
+    [related RFC](https://github.com/NixOS/rfcs/pull/120)
+  - It is difficult to find an equivalent to `builtins.match`, because each regex engine appears
+    to use a different syntax.
+    [`builtins.match` implementation in Nix ifself](https://github.com/NixOS/nix/blob/646af7325d93f98802b989f8a8e008a25f7a4788/src/libexpr/primops.cc#L3449),
+    and it uses [`std::regex::extended`](https://github.com/NixOS/nix/blob/c74eac9fdeb172ea155b2d7ee9fe68d6487adc39/src/libexpr/primops.cc#L3440)
+    as the format.
+
+## Available components
+
+- Lexer+Parser: [`rnix`](https://docs.rs/rnix), based upon `rowan`,
+  but deviates a bit from the original Nix parser, and might thus parse some Nix code incorrectly.
+- Lexer+Parser: [`NixEL`](https://github.com/kamadorueda/nixel), based upon `santiago`,
+  tries to adhere much more closely to the original Nix syntax.
+- [`store-ref-scanner`](https://docs.rs/store-ref-scanner),
+  for scanning of byte arrays for references to a Nix-like store. Similar in goal to
+  [`libstore/references.cc`](https://github.com/NixOS/nix/blob/646af7325d93f98802b989f8a8e008a25f7a4788/src/libstore/references.cc),
+  but not a reimplementation.
