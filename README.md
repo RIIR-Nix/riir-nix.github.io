@@ -45,6 +45,7 @@
   but it might be possible to extract common abstractions out into some shared rust crates.
 - [Tvix: We are rewriting Nix](https://www.reddit.com/r/NixOS/comments/r6ykln/tvix_we_are_rewriting_nix/hmxk04p/)
   TVL / tvix tries to reimplement the Nix evaluator in Rust.
+- [kamadorueda/toros](https://github.com/kamadorueda/toros), proof-of-concept Nix interpreter.
 
 ## Related projects
 
