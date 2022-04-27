@@ -70,3 +70,4 @@
   for scanning of byte arrays for references to a Nix-like store. Similar in goal to
   [`libstore/references.cc`](https://github.com/NixOS/nix/blob/646af7325d93f98802b989f8a8e008a25f7a4788/src/libstore/references.cc),
   but not a reimplementation.
+  - [example usage in yzix](https://github.com/YZITE/yzix/blob/cdd10d1249d6b6d8a79ed04d6acb01f92c932117/crates/yzix-store-builder/src/store_refs.rs)
