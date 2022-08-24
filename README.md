@@ -71,3 +71,6 @@
   [`libstore/references.cc`](https://github.com/NixOS/nix/blob/646af7325d93f98802b989f8a8e008a25f7a4788/src/libstore/references.cc),
   but not a reimplementation.
   - [example usage in yzix](https://github.com/YZITE/yzix/blob/cdd10d1249d6b6d8a79ed04d6acb01f92c932117/crates/yzix-store-builder/src/store_refs.rs)
+- [`nix-builtin-utils`](https://github.com/zseri/nix-builtin-utils),
+  implements evaluator components which rely closely on C++, or are otherwise cumbersome, and contain boring complexity
+  (currently mostly regex stuff, because most regex engines have incompatible syntax and behave differently in edge cases)
